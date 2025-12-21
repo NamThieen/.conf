@@ -1,0 +1,7 @@
+include "cfg/startup.kdl"
+include "cfg/misc.kdl"
+include "cfg/recentWindows.kdl"
+include "cfg/layout.kdl"
+include "cfg/keyBinds.kdl"
+include "cfg/windowRules.kdl"
+include "cfg/io.kdl"

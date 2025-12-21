@@ -1,0 +1,37 @@
+layout {
+    background-color "transparent"
+    gaps 0
+    center-focused-column "always"
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+
+    }
+	
+    default-column-width { }
+    focus-ring {
+        off
+    }
+    border {
+        // off
+        width 2
+        active-color "#121212"
+        inactive-color "#505050"
+        urgent-color "#9b0000"
+    }
+}
+
+overview {
+    zoom 0.8
+    workspace-shadow {
+        off
+    }
+}
+
+layer-rule {
+    match namespace="^wallpaper$"
+    place-within-backdrop true
+}
+

@@ -1,0 +1,17 @@
+input {
+    focus-follows-mouse
+    keyboard {
+        xkb {
+        }
+    }
+    touchpad {
+        tap
+        natural-scroll
+    }
+    mouse {
+    }
+}
+output "eDP-0" {
+    mode "1366x768@59.99"
+    scale 1
+}

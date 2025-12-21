@@ -1,0 +1,7 @@
+spawn-at-startup "waybar"
+spawn-sh-at-startup "ibus start"
+spawn-sh-at-startup "vicinae server"
+spawn-at-startup "swaync"
+
+
+spawn-sh-at-startup "swaybg -i /usr/share/backgrounds/gnome/curvy-d.jxl -m fill"
