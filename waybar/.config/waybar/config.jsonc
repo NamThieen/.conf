@@ -1,0 +1,75 @@
+{
+    "width": 20,
+    "layer": "top",
+    "position": "left",
+    "spacing": 0,
+    "modules-left": ["network","niri/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["group/audio","tray","custom/notification"],
+    "niri/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "focused": "<span size='15pt'>◉</span>",
+            "default": "<span size='15pt'>⚬</span>",
+        },
+    },
+    "tray": {
+        "icon-size": 20,
+        "spacing": 10
+    },
+    "clock": {
+        "tooltip": false,
+        "format": "{:%e\n%m\n\n<b>%H\n%M</b>}"
+    },
+    "network": {
+        "format-wifi": "",
+        "icon-size": 10,
+        "format-disconnected": "⚠",
+    },
+    "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "✉",
+      "none": "",
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+        "on-click-right": "swaync-client -d -sw",
+        "on-click": "swaync-client -t -sw",
+        "escape": true
+    },
+    "group/audio": {
+        "orientation": "vertical",
+        "drawer": {
+            "transition-duration": 400,
+            "children-class": "audio",
+            "transition-left-to-right": false
+            },
+        "modules": [
+            "pulseaudio",
+            "pulseaudio/slider"
+        ]
+    },
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "vertical"
+    },
+        "pulseaudio": {
+        "interval": 1,
+        "format": "{icon}",
+        "format-icons": [
+            "<span weight='bold' size='12pt'>🕨</span>",
+            "<span weight='bold' size='12pt'>🕩</span>",
+            "<span weight='bold' size='12pt'>🕪</span>"
+    ],
+    "reverse-scrolling": true,
+    "tooltip": true,
+    "tooltip-format": "Volume: {volume}%",
+    "ignored-sinks": [
+            "Easy Effects Sink"
+        ]
+    },
+}
