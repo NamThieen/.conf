@@ -2,12 +2,12 @@ binds {
 
     Mod+Shift+Slash { show-hotkey-overlay; }
 
+    Mod+E hotkey-overlay-title="Open a Text Editor" { spawn "wezterm" "-e" "/usr/bin/hx"; }
     Mod+N hotkey-overlay-title="Open Notification Center" { spawn-sh "swaync-client -t -sw"; }
-    Mod+T hotkey-overlay-title="Open a Terminal" { spawn "ghostty"; }
+    Mod+T hotkey-overlay-title="Open a Terminal" { spawn "wezterm"; }
     Mod+B hotkey-overlay-title="Open a Browser" { spawn "helium-browser-bin"; }
     Mod+P hotkey-overlay-title="Open a Document Viewer" { spawn "papers"; }
 
-    Ctrl+B { spawn-sh "pkill -USR1 waybar";}
     Alt+V repeat=false { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
     Mod+D repeat=false hotkey-overlay-title="Run an Application: " { spawn-sh "vicinae toggle"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
@@ -76,12 +76,6 @@ binds {
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
 
-    Mod+Ctrl+F { expand-column-to-available-width; }
-
-    Mod+C { center-column; }
-
-    Mod+Ctrl+C { center-visible-columns; }
-
     Mod+Minus { set-column-width "-10%"; }
     Mod+Equal { set-column-width "+10%"; }
 
@@ -99,5 +93,4 @@ binds {
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Mod+Shift+E { quit; }
     Ctrl+Alt+Delete { quit; }
-    Mod+Shift+P { power-off-monitors; }
 }

@@ -1,7 +1,6 @@
 hotkey-overlay {
      skip-at-startup
 }
-
 prefer-no-csd
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
@@ -10,4 +9,8 @@ animations {
 }
 debug {
     honor-xdg-activation-with-invalid-serial
+}
+cursor {
+    xcursor-theme "Adwaita"
+    xcursor-size 24
 }
