@@ -1,7 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export CUTECOSMIC_DEFAULT_STYLE:kvantum
-SETUVAR --export QT_QPA_PLATFORMTHEME:cosmic
+SETUVAR --export QT_STYLE_OVERRIDE:kvantum
 SETUVAR --export QT_WAYLAND_DISABLE_WINDOWDECORATION:1
 SETUVAR __fish_initialized:3800
 SETUVAR fish_greeting:

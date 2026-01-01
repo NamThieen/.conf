@@ -7,6 +7,7 @@ binds {
     Mod+T hotkey-overlay-title="Open a Terminal" { spawn "wezterm"; }
     Mod+B hotkey-overlay-title="Open a Browser" { spawn "helium-browser-bin"; }
     Mod+P hotkey-overlay-title="Open a Document Viewer" { spawn "papers"; }
+    Mod+M hotkey-overlay-title="Open a File Browser" { spawn "nautilus"; }
 
     Alt+V repeat=false { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
     Mod+D repeat=false hotkey-overlay-title="Run an Application: " { spawn-sh "vicinae toggle"; }
