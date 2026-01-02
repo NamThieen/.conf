@@ -1,13 +1,15 @@
 binds {
 
+//    Caps_Lock+F hotkey-overlay-title="Open a File Browser" { spawn "nautilus"; }
+    
     Mod+Shift+Slash { show-hotkey-overlay; }
 
+    Mod+U hotkey-overlay-title="Update system" { spawn "wezterm" "start" "--" "sudo" "dnf" "up"; }
     Mod+E hotkey-overlay-title="Open a Text Editor" { spawn "wezterm" "-e" "/usr/bin/hx"; }
     Mod+N hotkey-overlay-title="Open Notification Center" { spawn-sh "swaync-client -t -sw"; }
     Mod+T hotkey-overlay-title="Open a Terminal" { spawn "wezterm"; }
     Mod+B hotkey-overlay-title="Open a Browser" { spawn "helium-browser-bin"; }
     Mod+P hotkey-overlay-title="Open a Document Viewer" { spawn "papers"; }
-    Mod+M hotkey-overlay-title="Open a File Browser" { spawn "nautilus"; }
 
     Alt+V repeat=false { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
     Mod+D repeat=false hotkey-overlay-title="Run an Application: " { spawn-sh "vicinae toggle"; }
@@ -83,7 +85,7 @@ binds {
     Mod+Shift+Minus { set-window-height "-10%"; }
     Mod+Shift+Equal { set-window-height "+10%"; }
 
-    Mod+V       { toggle-window-floating; }
+   // Mod+i       { toggle-window-floating; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
     Mod+W { toggle-column-tabbed-display; }
 
@@ -92,5 +94,4 @@ binds {
     Alt+Print { screenshot-window; }
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Mod+Shift+E { quit; }
-    Ctrl+Alt+Delete { quit; }
 }
