@@ -4,9 +4,9 @@
   "ignore-gtk-theme": false,
   "positionX": "left",
   "positionY": "bottom",
-  "control-center-margin-top": 10,
-  "control-center-margin-bottom": 0,
-  "control-center-margin-right": 10,
+  "control-center-margin-top": 0,
+  "control-center-margin-bottom": 10,
+  "control-center-margin-left": 10,
   "notification-body-image-height": 100,
   "notification-body-image-width": 200,
   "notification-inline-replies": true,
@@ -15,7 +15,7 @@
   "timeout-critical": 0,
   "fit-to-screen": false,
   "control-center-width": 400,
-  "control-center-height": 605,
+  "control-center-height": 600,
   "notification-window-width": 500,
   "keyboard-shortcuts": true,
   "image-visibility": "when-available",
@@ -25,7 +25,6 @@
   "script-fail-notify": true,
   "text-empty": "No Notification",
   "widgets": [
-    "inhibitors",
     "title",
     "dnd",
     "notifications",
@@ -43,7 +42,7 @@
       "blacklist": ["playerctl"],
       "autohide": false,
       "show-album-art": "always",
-      "loop-carousel": false
+      "loop-carousel": true
     }
   }
 }

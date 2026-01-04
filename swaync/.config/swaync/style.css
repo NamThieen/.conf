@@ -393,8 +393,8 @@
 }
 
 .widget-mpris .widget-mpris-player button:hover {
-  /* The media player buttons (play, pause, next, etc...) */
   background: @noti-bg-hover;
+  background-color: rgba(255,255,255,0.5);
 }
 
 .widget-mpris .widget-mpris-player .widget-mpris-album-art {
@@ -412,11 +412,14 @@
 }
 
 .widget-mpris .widget-mpris-player > box > button {
-  /* Change player control buttons */
+  border: none;
+  color: white;
+  background-color: rgba(255,255,255,0.1);
 }
 
 .widget-mpris .widget-mpris-player > box > button:hover {
-  background-color: @mpris-button-hover;
+  border: none;
+  background-color: rgba(255,255,255,0.2);
 }
 
 .widget-mpris > box > button {

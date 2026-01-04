@@ -11,6 +11,6 @@ debug {
     honor-xdg-activation-with-invalid-serial
 }
 cursor {
-    xcursor-theme "Adwaita"
+    xcursor-theme "elementary"
     xcursor-size 24
 }

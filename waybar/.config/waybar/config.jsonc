@@ -19,7 +19,8 @@
     },
     "clock": {
         "tooltip": false,
-        "format": "{:%H\n%M\n\n<b>%e\n%m</b>}"
+        "format": "{:%H\n%M\n\n<b>%e\n%m</b>}",
+        "on-click": "gnome-calendar"
     },
     "network": {
         "format-wifi": "<span weight='bold'></span>",
@@ -59,7 +60,7 @@
         "orientation": "vertical"
     },
         "pulseaudio": {
-        "interval": 1,
+        "interval": 5,
         "format": "{icon}",
         "format-icons": [
             "<span weight='bold' size='24pt'></span>",
@@ -67,10 +68,6 @@
             "<span weight='bold' size='24pt'></span>"
     ],
     "reverse-scrolling": true,
-    "tooltip": true,
     "tooltip-format": "Volume: {volume}%",
-    "ignored-sinks": [
-            "Easy Effects Sink"
-        ]
     },
 }
