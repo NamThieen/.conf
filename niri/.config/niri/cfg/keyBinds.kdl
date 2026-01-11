@@ -3,13 +3,14 @@ binds {
  
 	Mod+Shift+N {spawn-sh  "swaync";}
 
+	Mod+G hotkey-overlay-title="Open Music player" { spawn "g4music"; }
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+U hotkey-overlay-title="Update system" { spawn "wezterm" "start" "--" "sudo" "dnf" "up"; }
     Mod+E hotkey-overlay-title="Open a Text Editor" { spawn "wezterm" "-e" "/usr/bin/hx"; }
     Mod+N hotkey-overlay-title="Open Notification Center" { spawn-sh "swaync-client -t -sw"; }
     Mod+T hotkey-overlay-title="Open a Terminal" { spawn "wezterm"; }
-    Mod+B hotkey-overlay-title="Open a Browser" { spawn "helium-browser-bin"; }
+    Mod+B hotkey-overlay-title="Open a Browser" { spawn "vivaldi-snapshot"; }
     Mod+P hotkey-overlay-title="Open a Document Viewer" { spawn "papers"; }
 
     Alt+V repeat=false { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
@@ -54,20 +55,11 @@ binds {
     Mod+Shift+U         { move-workspace-down; }
     Mod+Shift+I         { move-workspace-up; }
 
-    Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
-    Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+    Mod+WheelScrollDown      cooldown-ms=150 { focus-column-right; }
+    Mod+WheelScrollUp        cooldown-ms=150 { focus-column-left; }
     Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
     Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
 
-    Mod+WheelScrollRight      { focus-column-right; }
-    Mod+WheelScrollLeft       { focus-column-left; }
-    Mod+Ctrl+WheelScrollRight { move-column-right; }
-    Mod+Ctrl+WheelScrollLeft  { move-column-left; }
-
-    Mod+Shift+WheelScrollDown      { focus-column-right; }
-    Mod+Shift+WheelScrollUp        { focus-column-left; }
-    Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
-    Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
     Mod+BracketLeft  { consume-or-expel-window-left; }
     Mod+BracketRight { consume-or-expel-window-right; }
 

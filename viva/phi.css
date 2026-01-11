@@ -1,0 +1,20 @@
+:-webkit-any(.native, .maximized)#browser #header {
+    min-height: 0 !important;
+}
+
+/* Demolish Vivaldi button */
+:-webkit-any(.native, .maximized)#browser .vivaldi  {
+	display: none !important;
+}
+:-webkit-any(.native, .maximized)#browser .topmenu {
+    position: absolute;
+}
+#browser .window-buttongroup {
+    display: none !important;
+}
+
+/* Reduce toolbar size for window buttons */
+.maximized#browser:not(.native):not(.tabs-top) .toolbar.toolbar-addressbar {
+    padding-right: 140px;
+}
+

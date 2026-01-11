@@ -1,0 +1,4 @@
+date=2026-01-10T16:02:23+07:00
+user=nam
+ext_dir=/home/nam/.local/share/gnome-shell/extensions
+dconf_path=/org/gnome/shell/extensions
