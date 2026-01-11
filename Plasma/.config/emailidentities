@@ -1,0 +1,14 @@
+[General]
+Default Identity=662205451
+
+[Identity #0]
+Default Domain=fedora
+Disable Fcc=false
+Disable Spam=false
+Identity=nam
+Image Location=
+Inline Signature=
+Name=nam
+Override Encryption Defaults=false
+Signature Enabled=false
+uoid=662205451

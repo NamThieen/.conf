@@ -1,0 +1,11 @@
+[94238ded-6a46-4a07-b326-7115d5ef0b92]
+Description=Application settings for org.qutebrowser.qutebrowser
+noborder=true
+noborderrule=4
+wmclass=python3.14 org.qutebrowser.qutebrowser
+wmclasscomplete=true
+wmclassmatch=1
+
+[General]
+count=1
+rules=94238ded-6a46-4a07-b326-7115d5ef0b92

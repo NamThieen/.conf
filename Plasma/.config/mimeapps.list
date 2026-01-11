@@ -1,0 +1,5 @@
+
+[Default Applications]
+x-scheme-handler/http=vivaldi-snapshot.desktop
+x-scheme-handler/https=vivaldi-snapshot.desktop
+text/html=vivaldi-snapshot.desktop

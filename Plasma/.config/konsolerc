@@ -1,0 +1,21 @@
+MenuBar=Disabled
+
+[Desktop Entry]
+DefaultProfile=Nam.profile
+
+[General]
+ConfigVersion=1
+
+[MainWindow]
+ToolBarsMovable=Enabled
+
+[MainWindow][Toolbar sessionToolbar]
+ToolButtonStyle=IconOnly
+
+[Notification Messages]
+CloseAllEmptyTabs=true
+CloseAllTabs=true
+CloseSingleTab=true
+
+[UiSettings]
+ColorScheme=
