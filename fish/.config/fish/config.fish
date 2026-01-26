@@ -5,7 +5,9 @@ if status --is-interactive
         thefuck --alias | source
     end
 
-    set QT_WAYLAND_DISABLE_WINDOWDECORATION 1
+    # setup
+    abbr fisheri "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
+
     # common
     abbr ... 'cd ../..'
     abbr c 'clear;'
@@ -23,6 +25,7 @@ if status --is-interactive
     # flatpak
     abbr flati 'flatpak install'
     abbr flatr 'flatpak remove'
+    abbr flats 'flatpak search'
     abbr flatu 'flatpak update'
 
     # fedora

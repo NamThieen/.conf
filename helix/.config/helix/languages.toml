@@ -16,3 +16,10 @@ args = ["server"]
 pylsp_mypy.enabled = true
 pylsp_mypy.live_mode = true
 rope_autoimport.enabled = true
+
+[language-server.clangd.config]
+fallbackFlags = ["-std=c23"]
+
+[[language]]
+name = "c"
+language-servers = [ "clangd" ]
