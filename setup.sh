@@ -1,8 +1,6 @@
 #!/bin/bash
-sudo su
 echo "Clone dotfiles"
 
-git clone https://github.com/NamThieen/.conf
 sudo dnf install stow emacs-pgtk libgda libgda-sqlite
 cd .conf
 stow fish
