@@ -1,11 +1,18 @@
 ;;; --- UI & Appearance ---
+(add-hook 'emacs-startup-hook
+          (lambda () (delete-other-windows)) t)
+
 (setq inhibit-startup-screen t)
 (add-hook 'window-setup-hook 'toggle-frame-fullscreen t)
 (add-to-list 'default-frame-alist '(undecorated . t))
+(setq split-height-threshold nil)
+(setq split-width-threshold 80)
 
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
+;; Beacon
+(beacon-mode t)
 
 (global-display-line-numbers-mode 1)
 (setq display-line-numbers-type 'relative)
@@ -58,7 +65,7 @@
 (use-package windmove
   :demand t
   :config
-  (windmove-default-keybindings '(control meta))
+  (windmove-default-keybindings '(shift meta))
   (setq windmove-wrap-around t)
   (setq windmove-allow-all-windows t)
   (windmove-mode 1))
@@ -73,17 +80,27 @@
          ("<C-H-left>"  . buf-move-left)
          ("<C-H-right>" . buf-move-right)))
 
+
 ;;; --- Automatically Generated Custom Section ---
 (custom-set-variables
- ;; Your existing custom-set-variables remain here
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(adwaita-dark))
  '(custom-safe-themes
-   '("74df3ebf39ecfbae335a791703992249c39a2d3c3997b73cf210ddce78671813" default))
+   '("74df3ebf39ecfbae335a791703992249c39a2d3c3997b73cf210ddce78671813"
+     default))
+ '(inhibit-startup-buffer-menu nil)
+ '(initial-scratch-message nil)
  '(package-selected-packages
-   '(ac-html ido-at-point ido-complete-space-or-hyphen 
-     ido-completing-read+ ido-grid-mode shr-tag-pre-highlight 
-     smex web-mode)))
+   '(ac-html beacon ido-at-point ido-complete-space-or-hyphen
+	     ido-completing-read+ ido-grid-mode magit
+	     shr-tag-pre-highlight smex vterm web-mode)))
 
 (custom-set-faces
- ;; Custom faces go here
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
