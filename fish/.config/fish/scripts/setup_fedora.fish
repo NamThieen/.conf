@@ -16,21 +16,9 @@ sudo dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.co
 check_status
 echo "Terra repository added."
 
-# ---  Update Flatpak appstream ---
-echo "---  Updating Flatpak appstream data ---"
-sudo flatpak update --appstream
-check_status
-echo "Flatpak appstream updated."
-
 # ---  Disable NetworkManager-wait-online.service ---
 echo "---  Disabling NetworkManager-wait-online.service ---"
 sudo systemctl disable NetworkManager-wait-online.service
 check_status
 echo "NetworkManager-wait-online.service disabled."
 
-# --- Install Vivaldi ---
-echo "--- Installing Vivaldi"
-echo "Adding repo"
-sudo dnf config-manager addrepo --from-repofile=https://repo.vivaldi.com/stable/vivaldi-fedora.repo
-echo "Installing"
-sudo dnf -y install vivaldi-stable
