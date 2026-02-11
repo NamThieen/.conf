@@ -1,4 +1,4 @@
-:#!/usr/bin/fish
+#!/usr/bin/fish
 echo "Starting Fedora system setup script..."
 
 # --- Helper function for error checking ---

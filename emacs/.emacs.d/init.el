@@ -11,8 +11,7 @@
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
-;; Beacon
-(beacon-mode t)
+
 
 (global-display-line-numbers-mode 1)
 (setq display-line-numbers-type 'relative)
@@ -21,16 +20,30 @@
 (add-to-list 'custom-theme-load-path "~/.emacs.d/exten/")
 (load-theme 'adwaita-dark t)
 
-;;; --- Package Infrastructure ---
+;; --- Package infrastructure ---
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
+(defvar my/packages
+  '(ac-html auto-sudoedit beacon buffer-move company-c-headers
+	     ido-at-point ido-complete-space-or-hyphen
+	     ido-completing-read+ ido-grid-mode magit org-autolist
+	     smex vterm))
 
-;; Ensure use-package is available
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-(require 'use-package)
+(require 'cl-lib)
+
+(defun my/install-packages ()
+  "Ensure the packages I use are installed. See `my/packages'."
+  (interactive)
+  (let ((missing-packages (cl-remove-if #'package-installed-p my/packages)))
+    (when missing-packages
+      (message "Installing %d missing package(s)" (length missing-packages))
+      (package-refresh-contents)
+      (mapc #'package-install missing-packages))))
+
+(my/install-packages)
+;; Beacon
+(beacon-mode t)
 
 ;;; --- Completion System (Ido & Smex) ---
 (ido-mode 1)
@@ -63,6 +76,7 @@
 
 ;; Windmove (Window Switching)
 (use-package windmove
+  :ensure t
   :demand t
   :config
   (windmove-default-keybindings '(shift meta))
@@ -79,7 +93,15 @@
          ("<C-H-down>"  . buf-move-down)
          ("<C-H-left>"  . buf-move-left)
          ("<C-H-right>" . buf-move-right)))
+;;; Org-mode
+(add-hook 'org-mode-hook (lambda () (org-autolist-mode)))  (add-hook 'org-mode-hook (lambda () (org-autolist-mode)))
 
+
+;;languages
+(add-hook 'after-init-hook 'global-company-mode)
+(add-to-list 'load-path "~/.emacs.d/languages/")
+
+(require 'c-hook)
 
 ;;; --- Automatically Generated Custom Section ---
 (custom-set-variables
@@ -93,10 +115,7 @@
      default))
  '(inhibit-startup-buffer-menu nil)
  '(initial-scratch-message nil)
- '(package-selected-packages
-   '(ac-html beacon ido-at-point ido-complete-space-or-hyphen
-	     ido-completing-read+ ido-grid-mode magit
-	     shr-tag-pre-highlight smex vterm web-mode)))
+ '(package-selected-packages nil))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
