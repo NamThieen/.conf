@@ -10,16 +10,6 @@
 
 ;;; Commentary:
 ;;
-;; adwaita-dark is a dark color scheme that aims to replicate the
-;; appearance and colors of GTK4 "libadwaita" applications.
-;;
-;; Features offered:
-;; * Beautiful dark color scheme inspired by Adwaita
-;; * Automatic 256-color mode support
-;; * Custom configurations for neotree and eldoc-frame
-;; * Custom fringe bitmaps for line continuations, visual-line-mode, diff-hl, flycheck, and flymake
-;; * Lightweight with no dependencies
-;;
 ;; To replace default line continuation/line wrap fringe bitmaps:
 ;; (adwaita-dark-theme-arrow-fringe-bmp-enable)
 ;;
@@ -160,7 +150,6 @@
 ;; Theme code
 ;;
 ;; -------------------------------------------------------------------------- ;;
-
 (let* ((class '((class color) (min-colors 256)))
 
        ;; Layout/sizing
@@ -172,40 +161,44 @@
                                    (display-graphic-p)
                                    (>= (tty-display-color-cells) 16777216)))
 
-       ;; Background colors
-       ;; [True color | 256-compatible]
-       (bg (if true-color-available-p "#1c1c1f" "gray11"))               ; #1c1c1c
-       (bg-alt (if true-color-available-p "#242424" "gray14"))           ; #242424
-       (bg-osd (if true-color-available-p "#060606" "gray3"))            ; #080808
-       (base-0 (if true-color-available-p "#202020" "gray13"))           ; #212121
-       (base-1 (if true-color-available-p "#262626" "gray15"))           ; #262626
-       (base-2 (if true-color-available-p "#292929" "gray16"))           ; #292929
-       (base-3 (if true-color-available-p "#303030" "gray19"))           ; #303030
-       (base-4 (if true-color-available-p "#454545" "gray27"))           ; #454545
-       (base-5 (if true-color-available-p "#656565" "gray40"))           ; #666666
-       (base-6 (if true-color-available-p "#7b7b7b" "gray48"))           ; #7a7a7a
-       (base-7 (if true-color-available-p "#a5a5a5" "gray65"))           ; #a6a6a6
-       (base-8 (if true-color-available-p "#dfdfdf" "gray87"))           ; #dedede
+       ;; Background colors (Mapped from <color name="libadwaita-dark" ...>)
+       (bg     (if true-color-available-p "#1d1d20" "gray11")) ; Main background
+       (bg-alt (if true-color-available-p "#2e2e32" "gray14")) ; current-line/alt bg
+       (bg-osd (if true-color-available-p "#000000" "black"))  ; dark_7
+       
+       ;; Grayscale / Base colors (Mapped from dark_1 to dark_6 and light_1 to light_7)
+       (base-0 (if true-color-available-p "#121212" "gray7"))  ; dark_6
+       (base-1 (if true-color-available-p "#242424" "gray14")) ; dark_5
+       (base-2 (if true-color-available-p "#3d3d3d" "gray24")) ; dark_4
+       (base-3 (if true-color-available-p "#1d1d20" "gray31")) ; dark_3 (status bar)
+       (base-4 (if true-color-available-p "#5e5e5e" "gray37")) ; dark_2
+       (base-5 (if true-color-available-p "#777777" "gray47")) ; dark_1 (def:comment)
+       (base-6 (if true-color-available-p "#9a9996" "gray60")) ; light_7
+       (base-7 (if true-color-available-p "#c0bfbc" "gray75")) ; light_5 (cursor/text)
+       (base-8 (if true-color-available-p "#ffffff" "white"))  ; light_1
 
-       ;; Foreground colors
-       ;; [True color | 256-compatible]
-       (fg (if true-color-available-p "#deddda" "gray86"))               ; #dbdbdb
-       (fg-alt (if true-color-available-p "#77767b" "gray47"))           ; #787878
-       (fg-osd (if true-color-available-p "#f0f0f0" "gray94"))           ; #f0f0f0
-       (gray (if true-color-available-p "#3d3846" "gray23"))             ; #3b3b3b
-       (red (if true-color-available-p "#ff6c6b" "indianred2"))          ; #ee6363
-       (orange (if true-color-available-p "#ffa348" "orange2"))          ; #ee9a00
-       (dark-orange (if true-color-available-p "#db6b1a" "darkorange3")) ; #cd6600
-       (green (if true-color-available-p "#54d18c" "seagreen3"))         ; #43cd80
-       (teal (if true-color-available-p "#5bc8af" "mediumaquamarine"))   ; #66cdaa
-       (yellow (if true-color-available-p "#f8e45c" "gold2"))            ; #eec900
-       (blue (if true-color-available-p "#64a6f4" "steelblue2"))         ; #5cacee
-       (dark-blue (if true-color-available-p "#1a5fb4" "dodgerblue4"))   ; #104e8b
-       (magenta (if true-color-available-p "#dd80de" "orchid3"))         ; #cd69c9
-       (pink (if true-color-available-p "#edb8ee" "plum"))               ; #dda0dd
-       (violet (if true-color-available-p "#7d8ac7" "mediumpurple3"))    ; #8968cd
-       (cyan (if true-color-available-p "#7ee5ff" "mediumturquoise")))   ; #48d1cc
+       ;; Foreground colors (Mapped from Adwaita named colors)
+       (fg     (if true-color-available-p "#c0bfbc" "gray75")) ; light_5 (standard text)
+       (fg-alt (if true-color-available-p "#777777" "gray47")) ; dark_1 (comments)
+       (fg-osd (if true-color-available-p "#fcfcfc" "gray99")) ; light_2
 
+       (gray   (if true-color-available-p "#777777" "gray47")) ; dark_1
+       (red    (if true-color-available-p "#ed333b" "red2"))   ; red_2
+       (orange (if true-color-available-p "#ffa348" "orange2")); orange_2 (def:statement)
+       (dark-orange (if true-color-available-p "#e66100" "orange3")) ; orange_4 (preprocessor)
+       (green  (if true-color-available-p "#33d17a" "green3")) ; green_3
+       (teal   (if true-color-available-p "#33b2a4" "teal2"))  ; teal_2 (def:string/type)
+       (yellow (if true-color-available-p "#f6d32d" "yellow3")); yellow_3
+       (blue   (if true-color-available-p "#62a0ea" "blue2"))  ; blue_2 (def:function)
+       (dark-blue (if true-color-available-p "#3584e4" "blue3")) ; blue_3
+       (magenta (if true-color-available-p "#c061cb" "orchid3")); purple_2
+       (pink    (if true-color-available-p "#dc8add" "plum"))   ; purple_1
+       (violet  (if true-color-available-p "#7d8ac7" "mediumpurple2")) ; violet_2 (def:number/constant)
+       (cyan    (if true-color-available-p "#2ec27e" "turquoise3")))  ; green_4
+
+  
+
+  
   (custom-theme-set-faces
    'adwaita-dark
 
@@ -260,6 +253,19 @@
    `(font-lock-regexp-grouping-backslash ((,class (:foreground ,teal :weight bold))))
    `(font-lock-regexp-grouping-construct ((,class (:foreground ,teal :weight bold))))
 
+   ;; Spaceline / Powerline Segments
+   `(powerline-active1 ((,class (:background ,base-2 :foreground ,blue))))   ; Brighter segment
+   `(powerline-active2 ((,class (:background ,base-1 :foreground ,fg))))     ; Middle segment
+   `(powerline-inactive1 ((,class (:background ,base-0 :foreground ,base-5))))
+   `(powerline-inactive2 ((,class (:background ,bg :foreground ,base-5))))
+
+   ;; Spaceline state indicators
+   `(spaceline-highlight-face-modified ((,class (:background ,orange :foreground ,bg))))
+   `(spaceline-highlight-face-read-only ((,class (:background ,magenta :foreground ,bg))))
+   `(spaceline-evil-normal ((,class (:background ,blue :foreground ,bg))))
+   `(spaceline-evil-insert ((,class (:background ,green :foreground ,bg))))
+   `(spaceline-evil-visual ((,class (:background ,violet :foreground ,bg))))
+
    ;; mode-line/header-line
    `(mode-line ((,class (:background ,base-3 :foreground ,fg :box ,(when adwaita-dark-theme-pad-mode-line `(:line-width ,mode-line-padding :color ,base-3))))))
    `(mode-line-inactive ((,class (:background ,bg-alt :foreground ,base-5 :box ,(when adwaita-dark-theme-pad-mode-line `(:line-width ,mode-line-padding :color ,bg-alt))))))
@@ -267,7 +273,6 @@
    `(mode-line-highlight ((,class (:foreground ,fg))))
    `(mode-line-buffer-id ((,class (:foreground ,base-8 :weight bold))))
    `(header-line ((,class (:inherit mode-line-inactive :foreground ,base-7))))
-
    ;; ---------------------------------- ;;
    ;; Internal/built-in packages
    ;; ---------------------------------- ;;
@@ -652,7 +657,7 @@
 
    ;; highlight-indentation
    `(highlight-indentation-face ((,class (:inherit hl-line))))
-   `(highlight-indentation-current-column-face ((,class (:background ,base-1))))
+   `(highlight-indentation-current-column-face ((,class (:background ,teal))))
    `(highlight-indentation-guides-odd-face ((,class (:inherit highlight-indentation-face))))
    `(highlight-indentation-guides-even-face ((,class (:inherit highlight-indentation-face))))
 
