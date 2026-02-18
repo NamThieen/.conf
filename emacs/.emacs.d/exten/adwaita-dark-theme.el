@@ -153,7 +153,7 @@
 (let* ((class '((class color) (min-colors 256)))
 
        ;; Layout/sizing
-       (mode-line-padding 10)
+       (mode-line-padding 0)
 
        ;; Feature availability
        (flat-button-available-p (version<= "28.1" emacs-version))
@@ -497,10 +497,11 @@
    `(tab-line-highlight ((,class (:inherit tab-line-tab))))
 
    ;; tab-bar
-   `(tab-bar ((,class (:background ,bg-alt))))
-   `(tab-bar-tab ((,class (:background ,bg :foreground ,fg :box ,(when adwaita-dark-theme-pad-tab-bar `(:line-width ,mode-line-padding :color ,bg))))))
-   `(tab-bar-tab-inactive ((,class (:background ,bg-alt :foreground ,fg-alt :box ,(when adwaita-dark-theme-pad-tab-bar `(:line-width ,mode-line-padding :color ,bg-alt))))))
-
+   `(tab-bar ((,class (:background ,bg-alt :foreground ,fg))))
+   `(tab-bar-tab ((,class (:background ,base-2 :foreground ,base-8 :box (:line-width 2 :color ,base-2)))))
+   `(tab-bar-tab-inactive ((,class (:background ,bg-alt :foreground ,base-5))))
+   `(tab-bar-tab-group-current ((,class (:inherit tab-bar-tab))))
+   `(tab-bar-tab-group-inactive ((,class (:inherit tab-bar-tab-inactive))))
    ;; which-func
    `(which-func ((,class (:inherit font-lock-function-name-face))))
 
@@ -634,26 +635,6 @@
    `(git-gutter-fr:modified ((,class (:inherit git-gutter:modified))))
    `(git-gutter-fr:added ((,class (:inherit git-gutter:added))))
    `(git-gutter-fr:deleted ((,class (:inherit git-gutter:deleted))))
-
-   ;; helm
-   `(helm-selection ((,class (:inherit bold :background ,dark-blue :distant-foreground ,blue))))
-   `(helm-match ((,class (:inherit bold :foreground ,blue :distant-foreground ,base-8))))
-   `(helm-source-header ((,class (:background ,base-2 :foreground ,base-5))))
-   `(helm-swoop-target-line-face ((,class (:foreground ,blue :inverse-video t))))
-   `(helm-visible-mark ((,class (:inherit (bold highlight)))))
-   `(helm-ff-file ((,class (:foreground ,fg))))
-   `(helm-ff-prefix ((,class (:foreground ,blue))))
-   `(helm-ff-dotted-directory ((,class (:foreground ,gray))))
-   `(helm-ff-directory ((,class (:foreground ,pink))))
-   `(helm-ff-executable ((,class (:inherit italic :foreground ,base-8))))
-   `(helm-grep-match ((,class (:foreground ,blue :distant-foreground ,red))))
-   `(helm-grep-file ((,class (:foreground ,cyan))))
-   `(helm-grep-lineno ((,class (:foreground ,base-5))))
-   `(helm-grep-finish ((,class (:foreground ,green))))
-   `(helm-swoop-target-line-face ((,class (:foreground ,blue :inverse-video t))))
-   `(helm-swoop-target-line-block-face ((,class (:foreground ,yellow))))
-   `(helm-swoop-target-word-face ((,class (:inherit bold :foreground ,green))))
-   `(helm-swoop-target-number-face ((,class (:foreground ,base-5))))
 
    ;; highlight-indentation
    `(highlight-indentation-face ((,class (:inherit hl-line))))
@@ -904,7 +885,7 @@
    `(undo-tree-visualizer-register-face ((,class (:foreground ,yellow))))
 
    ;; vertico
-   `(vertico-current ((,class (:background ,base-3 :bold ,(when adwaita-dark-theme-bold-vertico-current 'bold)))))
+   `(vertico-current ((,class (:background , base-2 :bold ,(when adwaita-dark-theme-bold-vertico-current 'bold)))))
    `(vertico-multiline ((,class (:foreground ,base-6))))
 
    ;; vundo
