@@ -1,5 +1,6 @@
-;; Global Utilities
+;; Global Utilities  -*- lexical-binding: t;-*-
 (require 'utils)
+
 (global-set-key (kbd "C-c e") 'open-emacs-config)
 (global-set-key (kbd "C-c k b") 'open-emacs-keybind)
 (global-set-key (kbd "C-c p") 'open-emacs-packages)
@@ -42,5 +43,11 @@
   (global-set-key (kbd "<C-s-down>")  'buf-move-down)
   (global-set-key (kbd "<C-s-left>")  'buf-move-left)
   (global-set-key (kbd "<C-s-right>") 'buf-move-right))
-
+(keymap-global-set "C-c r" 'consult-recent-file)
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "<return>") nil)
+  (define-key company-active-map (kbd "RET") nil)
+  ;; Optional: If you want TAB to be the only way to select
+  (define-key company-active-map (kbd "TAB") #'company-complete-selection)
+  (define-key company-active-map (kbd "<tab>") #'company-complete-selection))
 (provide 'bindings)

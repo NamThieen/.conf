@@ -885,9 +885,9 @@
    `(undo-tree-visualizer-register-face ((,class (:foreground ,yellow))))
 
    ;; vertico
-   `(vertico-current ((,class (:background , base-2 :bold ,(when adwaita-dark-theme-bold-vertico-current 'bold)))))
+   `(vertico-current ((,class (:background , base-2 :bold ))))
    `(vertico-multiline ((,class (:foreground ,base-6))))
-
+     
    ;; vundo
    `(vundo-default ((,class (:background ,bg-alt))))
    `(vundo-stem ((,class (:foreground ,base-5))))
@@ -901,7 +901,15 @@
    `(which-key-local-map-description-face ((,class (:foreground ,magenta))))
 
    ;; yasnippet
-   `(yas-field-highlight-face ((,class (:inherit match))))))
+   `(yas-field-highlight-face ((,class (:inherit match))))
+   
+   ;; org-mode
+   '(org-level-1 ((t (:inherit outline-1 :height 1.8))))
+   '(org-level-2 ((t (:inherit outline-2 :height 1.5))))
+   '(org-level-3 ((t (:inherit outline-3 :height 1.3))))
+   '(org-document-title ((t (:height 2.0 :underline nil))))))
+
+
 
 ;; -------------------------------------------------------------------------- ;;
 ;;
